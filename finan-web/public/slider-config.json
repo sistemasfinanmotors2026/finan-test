@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "section1": {
+      "images": [
+        "/uploaded-images/slider-1774296774291-upfhgf9tlf.jpeg",
+        "/uploaded-images/slider-1774296774296-ivvug2fxqwf.jpeg"
+      ],
+      "lastUpdated": "2026-03-23T20:18:09.024Z"
+    },
+    "section2": {
+      "images": [
+        "/fnpage1.jpeg",
+        "/fnpage2.jpeg",
+        "/fnpage3.jpeg"
+      ],
+      "lastUpdated": "2024-01-01T00:00:00.000Z"
+    },
+    "section3": {
+      "images": [
+        "/fnpage1.jpeg",
+        "/fnpage2.jpeg",
+        "/fnpage3.jpeg"
+      ],
+      "lastUpdated": "2026-03-23T20:26:21.174Z"
+    },
+    "services": {
+      "images": [
+        "/fnpage1.jpeg",
+        "/fnpage2.jpeg",
+        "/fnpage3.jpeg",
+        "/fnpage1.jpeg"
+      ],
+      "lastUpdated": "2024-01-01T00:00:00.000Z"
+    }
+  }
+}
