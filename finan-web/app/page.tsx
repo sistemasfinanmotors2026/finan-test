@@ -44,6 +44,8 @@ export default function Home() {
             description: "",
             image: "/public/fnpage2.jpg",
           },
+
+          
           {
             title: "Créditos Accesibles",
             description: "",

@@ -25,8 +25,14 @@ export default function DragSlider({
     if (!autoplay) return;
 
     const interval = setInterval(() => {
+
+      
+
       setCurrentImage((prev) => (prev + 1) % images.length);
+
+      
     }, autoplaySpeed);
+
 
     return () => clearInterval(interval);
   }, [autoplay, autoplaySpeed, images.length]);
