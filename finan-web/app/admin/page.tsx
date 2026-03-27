@@ -4,11 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-interface SectionConfig {
-  images: string[];
-  lastUpdated: string;
-}
-
 interface SliderConfig {
   section: string;
   images: string[];
@@ -17,48 +12,31 @@ interface SliderConfig {
 
 export default function AdminPage() {
   const router = useRouter();
+
   const [currentSection, setCurrentSection] = useState('section1');
   const [images, setImages] = useState<string[]>([]);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState('');
-  const [availableSections] = useState(['section1', 'section2', 'services']); // Secciones disponibles
 
-  // Verificar autenticación
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem('adminAuthenticated');
-    const authTime = localStorage.getItem('adminAuthTime');
+  const [availableSections] = useState([
+    'section1',
+    'section2',
+    'services'
+  ]);
 
-    if (!isAuthenticated || !authTime) {
-      router.push('/admin/login');
-      return;
-    }
-
-    // Verificar si han pasado más de 24 horas desde la autenticación
-    const timeDiff = Date.now() - parseInt(authTime);
-    const hours24 = 24 * 60 * 60 * 1000;
-
-    if (timeDiff > hours24) {
-      localStorage.removeItem('adminAuthenticated');
-      localStorage.removeItem('adminAuthTime');
-      router.push('/admin/login');
-      return;
-    }
-  }, [router]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('adminAuthenticated');
-    localStorage.removeItem('adminAuthTime');
-    router.push('/admin/login');
-  };
+  // 🔥 SOLO carga datos (auth ya lo maneja el proxy)
   useEffect(() => {
     loadConfig();
   }, [currentSection]);
 
   const loadConfig = async () => {
     try {
-      const response = await fetch(`/api/images?section=${currentSection}`);
+      const response = await fetch(`/api/images?section=${currentSection}`, {
+        cache: "no-store"
+      });
+
       const config: SliderConfig = await response.json();
       setImages(config.images);
     } catch (error) {
@@ -67,6 +45,15 @@ export default function AdminPage() {
       setIsLoading(false);
     }
   };
+
+  const handleLogout = async () => {
+  await fetch('/api/auth/logout', {
+    method: 'POST'
+  });
+
+  // 🔥 navegación real (evita conflicto con proxy)
+  window.location.href = '/admin/login';
+};
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
@@ -98,11 +85,10 @@ export default function AdminPage() {
       if (response.ok) {
         setMessage(result.message);
         setSelectedFiles([]);
-        // Limpiar el input file
+
         const fileInput = document.getElementById('file-input') as HTMLInputElement;
         if (fileInput) fileInput.value = '';
 
-        // Recargar configuración
         await loadConfig();
       } else {
         setMessage(result.error || 'Error al subir imágenes');
@@ -115,55 +101,52 @@ export default function AdminPage() {
   };
 
   const handleDelete = async (imagePath: string) => {
-    if (!confirm('¿Estás seguro de que quieres eliminar esta imagen?')) {
-      return;
-    }
+    if (!confirm('¿Eliminar esta imagen?')) return;
 
     try {
-      const response = await fetch(`/api/images?section=${currentSection}&path=${encodeURIComponent(imagePath)}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(
+        `/api/images?section=${currentSection}&path=${encodeURIComponent(imagePath)}`,
+        { method: 'DELETE' }
+      );
 
       const result = await response.json();
 
       if (response.ok) {
-        setMessage('Imagen eliminada correctamente');
+        setMessage('Imagen eliminada');
         await loadConfig();
       } else {
-        setMessage(result.error || 'Error al eliminar imagen');
+        setMessage(result.error || 'Error al eliminar');
       }
-    } catch (error) {
+    } catch {
       setMessage('Error de conexión');
     }
   };
 
   const handleReset = async () => {
-    if (!confirm(`¿Estás seguro de que quieres resetear la sección "${currentSection}" a la configuración original? Esta acción no se puede deshacer.`)) {
-      return;
-    }
+    if (!confirm(`Resetear "${currentSection}"?`)) return;
 
     try {
       const response = await fetch(`/api/images?section=${currentSection}`, {
-        method: 'PUT',
+        method: 'PUT'
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        setMessage('Configuración reseteada a la original');
+        setMessage('Reseteado correctamente');
         await loadConfig();
       } else {
-        setMessage(result.error || 'Error al resetear configuración');
+        setMessage(result.error || 'Error');
       }
-    } catch (error) {
+    } catch {
       setMessage('Error de conexión');
     }
   };
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="text-xl">Cargando...</div>
+      <div className="min-h-screen flex items-center justify-center">
+        Cargando...
       </div>
     );
   }

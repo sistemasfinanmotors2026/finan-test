@@ -22,7 +22,7 @@ export default function Home() {
       {/* Sección 2: Planifica con nosotros */}
       <SectionCard
         sectionId="section2"
-        title="Planifica con nosotros. . ."
+        title="Planifica con nosotros."
         paragraphs={[
           "Porque planificar con nosotros también es celebrar.",
           "Por ser nuestro cliente navideño, llévate una canasta para compartir con tus seres queridos con la adquisición de nuestros planes.",
@@ -31,30 +31,32 @@ export default function Home() {
       />
       <SectionCard2
         sectionId="section3"
-        title="Nuestros Servicios"
+        title="Planifica tus Metas"
         subtitle="Descubre cómo podemos ayudarte a alcanzar tus metas financieras"
         items={[
           {
             title: "Asesoría Personalizada",
             description: "",
-            image: "/public/fnpage1.jpg",
+            image: "/fnpage1.jpeg",
+            href: "/conocenos"
           },
           {
             title: "Planes de Ahorro",
             description: "",
-            image: "/public/fnpage2.jpg",
+            image: "/fnpage2.jpeg",
+            href: "/planes"
           },
-
-          
           {
             title: "Créditos Accesibles",
             description: "",
-            image: "/public/fnpage3.jpg",
+            image: "/fnpage3.jpeg",
+            href: "/planes"
           },
           {
             title: "Plan Prueba",
             description: "",
-            image: "/public/fnpage3.jpg",
+            image: "/fnpage1.jpeg", // ✅ corregido
+            href: "/planes"
           },
         ]}
       />

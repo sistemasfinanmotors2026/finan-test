@@ -1,7 +1,9 @@
 "use client";
 
-import DragSlider from "./DragSlider";
+import { delay, motion } from "framer-motion";
+import SwiperSlider from "./SwiperSlide";
 import { useState, useEffect } from "react";
+
 
 interface SectionCardProps {
   title: string;
@@ -29,9 +31,12 @@ export default function SectionCard({
   useEffect(() => {
     if (propImages) return; // Si se pasaron imágenes como props, usar esas
 
+    
     const loadImages = async () => {
       try {
-        const response = await fetch(`/api/images?section=${sectionId}`);
+        const response = await fetch(`/api/images?section=${sectionId}`, {
+          cache: "no-store",
+        });
         const config = await response.json();
         setImages(config.images);
       } catch (error) {
@@ -69,7 +74,7 @@ export default function SectionCard({
             aspectRatio: "1 / 1",
           }}
         >
-          <DragSlider
+          <SwiperSlider
             images={images}
             autoplay={autoplay}
             autoplaySpeed={autoplaySpeed}
@@ -88,37 +93,71 @@ export default function SectionCard({
       {paragraphs.map((paragraph, index) => (
         <h4
           key={index}
-          className={`text-white text-xl lg:text-2xl leading-relaxed ${
-            index > 0 ? "mt-6" : ""
-          }`}
+          className={`text-white text-xl lg:text-2xl leading-relaxed ${index > 0 ? "mt-6" : ""
+            }`}
         >
           {paragraph}
         </h4>
       ))}
     </div>
   );
-
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -200 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.2, delay: 0.3, ease: "easeOut" as const },
+    },
+  };
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 200 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.2, delay: 0.3, ease: "easeOut" as const },
+    },
+  };
   return (
-    <div className="w-full bg-linear-to-r from-blue-900 via-blue-950 to-blue-900 flex items-center mb-20">
+    <div className="w-full bg-linear-to-r from-blue-900 via-blue-950 to-blue-900 flex items-center mb-36">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ml-6">
           {imagePosition === "left" ? (
             <>
-              <div className="animate-fade-in-up">
+              <motion.div
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <Carousel />
-              </div>
-              <div className="animate-fade-in-right">
+              </motion.div>
+              <motion.div
+                variants={fadeInRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <TextContent />
-              </div>
+              </motion.div>
             </>
           ) : (
             <>
-              <div className="animate-fade-in-up">
+              <motion.div
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <TextContent />
-              </div>
-              <div className="animate-fade-in-right">
+              </motion.div>
+              <motion.div
+                variants={fadeInRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <Carousel />
-              </div>
+              </motion.div>
             </>
           )}
         </div>

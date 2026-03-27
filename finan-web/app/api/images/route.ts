@@ -37,25 +37,21 @@ async function saveConfig(config: any) {
 // GET - Obtener configuración de imágenes para una sección específica
 export async function GET(request: NextRequest) {
   try {
+    console.log("API HIT"); // 👈 clave
+
     const { searchParams } = new URL(request.url);
     const section = searchParams.get('section') || 'default';
 
     const config = await readConfig();
 
-    // Si no existe la sección, devolver configuración por defecto
-    if (!config.sections[section]) {
-      config.sections[section] = {
-        images: ['/fnpage1.jpeg', '/fnpage2.jpeg', '/fnpage3.jpeg'],
-        lastUpdated: new Date().toISOString()
-      };
-      await saveConfig(config);
-    }
-
     return NextResponse.json({
       section,
       ...config.sections[section]
     });
+
   } catch (error) {
+    console.error("ERROR REAL API:", error);
+
     return NextResponse.json(
       { error: 'Error al obtener configuración' },
       { status: 500 }

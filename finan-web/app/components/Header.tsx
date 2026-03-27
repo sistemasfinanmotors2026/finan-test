@@ -72,7 +72,7 @@ export default function Header() {
 
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-0 w-48 bg-white border border-zinc-200 dark:border-zinc-700 rounded-md shadow-lg z-50"
+                  className="absolute top-full left-0 mt-0 w-58 bg-white border border-zinc-200 dark:border-amber-400  shadow-lg z-50"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
                       window.clearTimeout(hoverTimeoutRef.current);

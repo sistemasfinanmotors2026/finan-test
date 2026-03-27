@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const ACCESS_CODE = "06DEv?*osayO";
 
 export default function LoginPage() {
   const [code, setCode] = useState('');
@@ -12,20 +11,23 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
+  e.preventDefault();
 
-    if (code === ACCESS_CODE) {
-      // Guardar en localStorage que está autenticado
-      localStorage.setItem('adminAuthenticated', 'true');
-      localStorage.setItem('adminAuthTime', Date.now().toString());
-      router.push('/admin');
-    } else {
-      setError('Código de acceso incorrecto');
-      setIsLoading(false);
-    }
-  };
+  const res = await fetch("/api/auth", {
+    method: "POST",
+    body: JSON.stringify({ code }),
+  });
+  console.log("STATUS:", res.status);
+
+  const data = await res.json();
+
+  if (data.success) {
+    router.push("/admin");
+    router.refresh();
+  } else {
+    setError("Código incorrecto");
+  }
+};
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
