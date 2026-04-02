@@ -111,7 +111,7 @@ export default function Header() {
             </div>
 
             <a
-              href="/contact"
+              href="/planes"
               className="text-[#041E57] hover:text-[#D3B67D] transition rounded-md px-2 py-1"
             >
               Planes
