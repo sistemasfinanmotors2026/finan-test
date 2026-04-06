@@ -1,0 +1,1489 @@
+
+{
+  "toyota": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Agya",
+      "imagen": "/modelos/Toyota_auto_Agya.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Prius",
+      "imagen": "/modelos/Toyota_auto_Prius.png",
+      "precio": 13500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Yaris",
+      "imagen": "/modelos/Toyota_auto_Yaris.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Corolla",
+      "imagen": "/modelos/Toyota_auto_Corolla.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Raize",
+      "imagen": "/modelos/Toyota_suv_Raize.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Yaris Cross",
+      "imagen": "/modelos/Toyota_suv_YarisCross.png",
+      "precio": 28500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Rush",
+      "imagen": "/modelos/Toyota_suv_Rush.png",
+      "precio": 24500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Fortuner",
+      "imagen": "/modelos/Toyota_suv_Fortuner.png",
+      "precio": 35500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Corolla Cross",
+      "imagen": "/modelos/Toyota_suv_CorollaCross.png",
+      "precio": 28000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Rav4",
+      "imagen": "/modelos/Toyota_suv_Rav4.png",
+      "precio": 21500
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Hilux CD 4x2",
+      "imagen": "/modelos/Toyota_camioneta_HiluxCD4X2.png",
+      "precio": 26000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Hilux CD 4x4",
+      "imagen": "/modelos/Toyota_camioneta_HiluxCD4X4.png",
+      "precio": 30500
+    },
+    {
+      "tipo": "van",
+      "nombre": "Innova 8",
+      "imagen": "/modelos/Toyota_Van_Innova.png",
+      "precio": 20000
+    }
+  ],
+  "honda": [
+    {
+      "tipo": "SEDAN",
+      "nombre": "City",
+      "imagen": "/modelos/Honda_auto_City.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Civic",
+      "imagen": "/modelos/Honda_auto_Civic.png",
+      "precio": 46000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Odissey",
+      "imagen": "/modelos/Honda_suv_Odyssey.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Pilot",
+      "imagen": "/modelos/Honda_suv_Pilot.png",
+      "precio": 33500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "WR-V",
+      "imagen": "/modelos/Honda_suv_WR-V.png",
+      "precio": 20000
+    }
+  ],
+  "chevrolet": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Spark GT",
+      "imagen": "/modelos/Chevrolet_auto_SparkGT.png",
+      "precio": 9000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Onix Turbo RS",
+      "imagen": "/modelos/Chevrolet_auto_OnixHachbag.png",
+      "precio": 12000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Joy",
+      "imagen": "/modelos/Chevrolet_auto_Joy.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Beat",
+      "imagen": "/modelos/Chevrolet_auto_Beat.png",
+      "precio": 10500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Sail",
+      "imagen": "/modelos/Chevrolet_auto_Sail.png",
+      "precio": 9000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Cavalier",
+      "imagen": "/modelos/Chevrolet_auto_Cavalier.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Onix Turbo",
+      "imagen": "/modelos/Chevrolet_auto_OnixTurboSedan.png",
+      "precio": 12500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Aveo Emotion",
+      "imagen": "/modelos/Chevrolet_auto_AveoEmotion.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Aveo Family",
+      "imagen": "/modelos/Chevrolet_auto_AveoFamily.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Optra Advance",
+      "imagen": "/modelos/Chevrolet_auto_OptraAdvance.png",
+      "precio": 8000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Grand Vitara",
+      "imagen": "/modelos/Chevrolet_suv_GrandVitara.png",
+      "precio": 12500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Groove",
+      "imagen": "/modelos/Chevrolet_suv_Groove.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tracker Turbo",
+      "imagen": "/modelos/Chevrolet_suv_NewCaptiva.png",
+      "precio": 18500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Captiva XL",
+      "imagen": "/modelos/Chevrolet_suv_CaptivaXL.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Trailblazer",
+      "imagen": "/modelos/Chevrolet_suv_BlazerRS.png",
+      "precio": 31000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Montana",
+      "imagen": "/modelos/Chevrolet_camioneta_Montana.png",
+      "precio": 22000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "D-Max",
+      "imagen": "/modelos/Chevrolet_camioneta_Dmax.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Colorado",
+      "imagen": "/modelos/Chevrolet_camioneta_AllNewColorado.png",
+      "precio": 41000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Silverado",
+      "imagen": "/modelos/Chevrolet_camioneta_Silverado.png",
+      "precio": 45000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "N400 Cargo",
+      "imagen": "/modelos/Chevrolet_camion_N400Cargo.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "NLR 511",
+      "imagen": "/modelos/Chevrolet_camion_NLR511EIV.png",
+      "precio": 21500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "NMR EIII",
+      "imagen": "/modelos/Chevrolet_camion_NMREIII.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "NPR 815",
+      "imagen": "/modelos/Chevrolet_camion_NPR815EIII.png",
+      "precio": 33000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "NQR 915",
+      "imagen": "/modelos/Chevrolet_camion_NQR915.png",
+      "precio": 40000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "FRR 1121",
+      "imagen": "/modelos/Chevrolet_camion_FRR1121EIII.png",
+      "precio": 43000
+    }
+  ],
+  "hyundai": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Grand i10 Hatchback",
+      "imagen": "/modelos/Hyundai_auto_GrandI10.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Grand i10 Sedan",
+      "imagen": "/modelos/Hyundai_auto_GrandI10Sedan.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Accent",
+      "imagen": "/modelos/Hyundai_auto_Accent.png",
+      "precio": 13500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Sonata",
+      "imagen": "/modelos/Hyundai_auto_Sonata.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Ioniq 5",
+      "imagen": "/modelos/Hyundai_suv_Ioniq5.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Venue",
+      "imagen": "/modelos/Hyundai_suv_Venue.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Kona Hybrid",
+      "imagen": "/modelos/Hyundai_suv_KonaHybrid.png",
+      "precio": 23500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tucson",
+      "imagen": "/modelos/Hyundai_suv_Tucson.png",
+      "precio": 13500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Santa Fe",
+      "imagen": "/modelos/Hyundai_suv_SantaFe.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "van",
+      "nombre": "H1",
+      "imagen": "/modelos/Hyundai_Van_H1.png",
+      "precio": 29000
+    },
+    {
+      "tipo": "van",
+      "nombre": "Staria",
+      "imagen": "/modelos/Hyundai_Van_Staria.png",
+      "precio": 42000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "H36 Sportman",
+      "imagen": "/modelos/Hyundai_camion_H36Sportman.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "HD45",
+      "imagen": "/modelos/Hyundai_camion_HD45.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "HD78",
+      "imagen": "/modelos/Hyundai_camion_HD78.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "HD55S",
+      "imagen": "/modelos/Hyundai_camion_HD55S.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Creta",
+      "imagen": "/modelos/Hyundai_suv_Creta.png",
+      "precio": 18000
+    }
+  ],
+  "Renault": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Sandero",
+      "imagen": "/modelos/Renault_auto_Sandero.png",
+      "precio": 10500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Logan",
+      "imagen": "/modelos/Renault_auto_Logan.png",
+      "precio": 9000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Stepway",
+      "imagen": "/modelos/Renault_suv_Stepway.png",
+      "precio": 11500
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Kwid",
+      "imagen": "/modelos/Renault_suv_Kwid.png",
+      "precio": 13500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Duster",
+      "imagen": "/modelos/Renault_suv_Duster.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Koleos",
+      "imagen": "/modelos/Renault_suv_Koleos.png",
+      "precio": 14500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Captur",
+      "imagen": "/modelos/Renault_suv_Captur.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Kardian",
+      "imagen": "/modelos/Renault_suv_Kardian.png",
+      "precio": 22000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Arkana",
+      "imagen": "/modelos/Renault_suv_Arkana.png",
+      "precio": 29000
+    }
+  ],
+  "Chery": [
+    {
+      "tipo": "SEDAN",
+      "nombre": "Arrizo 3",
+      "imagen": "/modelos/Chery_auto_ARRIZO3.png",
+      "precio": 10500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Arrizo 5",
+      "imagen": "/modelos/Chery_auto_ARRIZO5.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Arrizo 5 PRO",
+      "imagen": "/modelos/Chery_auto_ARRIZO5PRO.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tiggo 2",
+      "imagen": "/modelos/Chery_suv_TIGGO2.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tiggo 4",
+      "imagen": "/modelos/Chery_suv_Tiggo4.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tiggo 5",
+      "imagen": "/modelos/Chery_suv_Tiggo5.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tiggo 7 PRO",
+      "imagen": "/modelos/Chery_suv_TIGGO7PRO.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tiggo 8",
+      "imagen": "/modelos/Chery_suv_TIGGO8.png",
+      "precio": 19500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "EQ7",
+      "imagen": "/modelos/Chery_suv_EQ7.png",
+      "precio": 33500
+    }
+  ],
+  "Changan": [
+    {
+      "tipo": "SEDAN",
+      "nombre": "V3",
+      "imagen": "/modelos/Changan_auto_V3.png",
+      "precio": 11500
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "CS15",
+      "imagen": "/modelos/Changan_suv_CS15.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "CS35",
+      "imagen": "/modelos/Changan_suv_CS35.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Uni-T",
+      "imagen": "/modelos/Changan_suv_UNI-T.png",
+      "precio": 26000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Uni-K",
+      "imagen": "/modelos/Changan_suv_UNI-K.png",
+      "precio": 45000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "CS55",
+      "imagen": "/modelos/Changan_suv_CS55.png",
+      "precio": 24500
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Hunter Turbo",
+      "imagen": "/modelos/Changan_camioneta_HunterTurbo.png",
+      "precio": 22000
+    },
+    {
+      "tipo": "van",
+      "nombre": "Star 5 Van Cargo",
+      "imagen": "/modelos/Changan_van_Star5Vancargo.png",
+      "precio": 11500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "Star 5",
+      "imagen": "/modelos/Changan_camion_STAR5.png",
+      "precio": 11000
+    }
+  ],
+  "peugeot": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "206",
+      "imagen": "/modelos/Peugeot_auto_206.png",
+      "precio": 8000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "207 Compact",
+      "imagen": "/modelos/Peugeot_auto_207Compact.png",
+      "precio": 8500
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "208",
+      "imagen": "/modelos/Peugeot_auto_208.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "301",
+      "imagen": "/modelos/Peugeot_auto_301.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "2008",
+      "imagen": "/modelos/Peugeot_suv_2008.png",
+      "precio": 18500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "3008",
+      "imagen": "/modelos/Peugeot_suv_3008.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "5008",
+      "imagen": "/modelos/Peugeot_suv_5008.png",
+      "precio": 29000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Rifter",
+      "imagen": "/modelos/Peugeot_suv_Rifter.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Landtrek",
+      "imagen": "/modelos/Peugeot_camioneta_LANDTREK.png",
+      "precio": 34000
+    }
+  ],
+  "skoda": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Fabia",
+      "imagen": "/modelos/Skoda_auto_Fabia.png",
+      "precio": 9000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Rapid",
+      "imagen": "/modelos/Skoda_auto_Rapid.png",
+      "precio": 12000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Octavia",
+      "imagen": "/modelos/Skoda_auto_Octavia.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Kamiq",
+      "imagen": "/modelos/Skoda_suv_Kamiq.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Kodiaq",
+      "imagen": "/modelos/Skoda_suv_-Kodiaq.png",
+      "precio": 32000
+    },
+    {
+      "tipo": "autos",
+      "nombre": "Fabia Combi",
+      "imagen": "/modelos/Skoda_auto_FabiaCombi-scaled.png",
+      "precio": 10500
+    }
+  ],
+  "ford": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Ecosport",
+      "imagen": "/modelos/Ford_suv_Ecosport.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Mondeo",
+      "imagen": "/modelos/Ford_auto_Mondeo.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Escape Titatium",
+      "imagen": "/modelos/Ford_suv_Escape.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Escape Full Hybrid",
+      "imagen": "/modelos/Ford_suv_EscapeFullHybrid.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Territory",
+      "imagen": "/modelos/Ford_suv_Territory.png",
+      "precio": 25000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "F-150",
+      "imagen": "/modelos/Ford_camioneta_F-150.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Ranger",
+      "imagen": "/modelos/Ford_camioneta_Ranger.png",
+      "precio": 26000
+    }
+  ],
+  "soueast": [
+    {
+      "tipo": "SEDAN",
+      "nombre": "A5",
+      "imagen": "/modelos/Soueast_auto_A5.png",
+      "precio": 13500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "DX3 Confort",
+      "imagen": "/modelos/Soueast_suv_DX3Confort.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "DX3 SRG",
+      "imagen": "/modelos/Soueast_suv_DX3SRG.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "DX7",
+      "imagen": "/modelos/Soueast_suv_DX7.png",
+      "precio": 17000
+    }
+  ],
+  "dongfeng": [
+    {
+      "tipo": "suv",
+      "nombre": "SX5",
+      "imagen": "/modelos/Dongfeng_suv_SX5.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "T5L",
+      "imagen": "/modelos/Dongfeng_suv_T5L.png",
+      "precio": 14500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "AX7 Mach",
+      "imagen": "/modelos/Dongfeng_suv_AX7-1.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Huge",
+      "imagen": "/modelos/Dongfeng_suv_Huge.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Paladin",
+      "imagen": "/modelos/Dongfeng_suv_Paladin.png",
+      "precio": 35000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Mage",
+      "imagen": "/modelos/Dongfeng_suv_Mage.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Rich 6 AC 4X4",
+      "imagen": "/modelos/Dongfeng_camioneta_Rich6.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Rich EV",
+      "imagen": "/modelos/Dongfeng_camioneta_Rich6EV.png",
+      "precio": 21500
+    }
+  ],
+  "foton": [
+    {
+      "tipo": "camioneta",
+      "nombre": "Tunland G7",
+      "imagen": "/modelos/Foton_camioneta_TunlandG7.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Tunland C",
+      "imagen": "/modelos/Foton_camioneta_TunlandC.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Tunland M",
+      "imagen": "/modelos/Foton_camioneta_TunlandM.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Tunland E",
+      "imagen": "/modelos/Foton_camioneta_TunlandE.png",
+      "precio": 42000
+    },
+    {
+      "tipo": "furgoneta",
+      "nombre": "Gratour V55",
+      "imagen": "/modelos/Foton-van_GratourV55.png",
+      "precio": 9500
+    },
+    {
+      "tipo": "furgoneta",
+      "nombre": "Gratour BJ6425",
+      "imagen": "/modelos/Foton-van_GratourBJ6425.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "furgoneta",
+      "nombre": "View Toano",
+      "imagen": "/modelos/Foton_van_VIEWTOANO.png",
+      "precio": 31000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "Aumark E 2.9 Ton",
+      "imagen": "/modelos/Foton_camion_AumarkE2.9.png",
+      "precio": 16500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "Aumark E 3.5 Ton",
+      "imagen": "/modelos/Foton_camion_AumarkE3.5.png",
+      "precio": 18500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "Aumark S 5.5 Ton",
+      "imagen": "/modelos/Foton_camion_AumarkS5.5Ton.png",
+      "precio": 20500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "Aumark 13 Ton",
+      "imagen": "/modelos/Foton_camion_Auman13Ton.png",
+      "precio": 26500
+    }
+  ],
+  "SINOTRUK": [
+    {
+      "tipo": "suv",
+      "nombre": "U70B",
+      "imagen": "/modelos/Sinotruk_suv_U70.png",
+      "precio": 15500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "100/1067",
+      "imagen": "/modelos/Sinotruk_camion_100_1067.png",
+      "precio": 30000
+    }
+  ],
+  "KIA": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Picanto",
+      "imagen": "/modelos/Kia_auto_Picanto.png",
+      "precio": 9500
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Rio 5",
+      "imagen": "/modelos/Kia_auto_Rio5.png",
+      "precio": 12000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Rio Stylus LS",
+      "imagen": "/modelos/Kia_auto_Stylus.png",
+      "precio": 8000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "New Rio",
+      "imagen": "/modelos/Kia_auto_NewRio.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Soluto",
+      "imagen": "/modelos/Kia_auto_Soluto.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Cerato",
+      "imagen": "/modelos/Kia_auto_Cerato.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Optima Hybrid",
+      "imagen": "/modelos/Kia_auto_OptimaHybrid.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Niro",
+      "imagen": "/modelos/Kia_suv_Niro.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Soul EV",
+      "imagen": "/modelos/Kia_suv_SoulEV.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Stonic",
+      "imagen": "/modelos/Kia_suv_Stonic.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "K3 Cross",
+      "imagen": "/modelos/Kia_suv_K3Cross.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "Sorento",
+      "imagen": "/modelos/Kia_suv_Sorento.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Sportage",
+      "imagen": "/modelos/Kia_suv_Sportage.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Sportage R",
+      "imagen": "/modelos/Kia_suv_SportageR.png",
+      "precio": 19500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Sonet",
+      "imagen": "/modelos/Kia_suv_Sonet.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "New Seltos",
+      "imagen": "/modelos/Kia_suv_NewSeltos.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Carens",
+      "imagen": "/modelos/Kia_suv_Carens.png",
+      "precio": 25000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Carnival",
+      "imagen": "/modelos/Kia_suv_Carnival.png",
+      "precio": 17500
+    }
+  ],
+  "Volkswagen": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Golf",
+      "imagen": "/modelos/Volkswagen_auto_Golf.png",
+      "precio": 25000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Polo Hatchback",
+      "imagen": "/modelos/Volkswagen_auto_Polo.png",
+      "precio": 12000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Beetle",
+      "imagen": "/modelos/Volkswagen_auto_Beetle.png",
+      "precio": 21500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Jetta",
+      "imagen": "/modelos/Volkswagen_auto_Jetta.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Virtus",
+      "imagen": "/modelos/Volkswagen_auto_Virtus.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Polo Sedan",
+      "imagen": "/modelos/Volkswagen_auto_PoloSedan.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "CROSSOVER",
+      "nombre": "T-Cross",
+      "imagen": "/modelos/Volkswagen_suv_TCross.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Tiguan Allspace",
+      "imagen": "/modelos/Volkswagen_suv_TiguanAllSpace.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Nivus",
+      "imagen": "/modelos/Volkswagen_suv_Nivus.png",
+      "precio": 28000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Amarok",
+      "imagen": "/modelos/Volkswagen_camioneta_Amarok.png",
+      "precio": 27000
+    }
+  ],
+  "Mazda": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Mazda 2 Hatchback",
+      "imagen": "/modelos/Mazda_auto_Mazda2.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Mazda 3 Hatchback",
+      "imagen": "/modelos/Mazda_auto_Mazda3.png",
+      "precio": 20000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "New 3",
+      "imagen": "/modelos/Mazda_auto_MazdaNew3.png",
+      "precio": 22000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Mazda 2 Sedan",
+      "imagen": "/modelos/Mazda_auto_Mazda2Sedan.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Mazda 3 Sedan",
+      "imagen": "/modelos/Mazda_auto_Mazda3Sedan.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Mazda 6",
+      "imagen": "/modelos/Mazda_auto_Mazda6Sedan.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "CX-3",
+      "imagen": "/modelos/Mazda_suv_CX3.png",
+      "precio": 18500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "CX-30",
+      "imagen": "/modelos/Mazda_suv_CX30.png",
+      "precio": 31500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "CX-5",
+      "imagen": "/modelos/Mazda_suv_CX5.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "BT-50",
+      "imagen": "/modelos/Mazda_camioneta_BT50.png",
+      "precio": 27000
+    }
+  ],
+  "Great Wall": [
+    {
+      "tipo": "suv",
+      "nombre": "M4",
+      "imagen": "/modelos/Greatwall_suv_HavalM4.png",
+      "precio": 10500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Voleex C30",
+      "imagen": "/modelos/GreatWall_auto_C30.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Haval H2 Holion",
+      "imagen": "/modelos/Greatwall_suv_HavalH2HOLION.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Haval H3",
+      "imagen": "/modelos/GreatWall_suv_HavalH3.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Haval H5",
+      "imagen": "/modelos/GreatWall_suv_HavalH5.png",
+      "precio": 12000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Haaval H6",
+      "imagen": "/modelos/Greatwall_suv_HavalH6.png",
+      "precio": 14500
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Wingle",
+      "imagen": "/modelos/GreatWall_camioneta_Wingle.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Wingle 5",
+      "imagen": "/modelos/GreatWall_camioneta_Wingle5.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Wingle 7",
+      "imagen": "/modelos/GreatWall_camioneta_Wingle7.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Poer",
+      "imagen": "/modelos/GreatWall_camioneta_Poer.png",
+      "precio": 25000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Poer AT",
+      "imagen": "/modelos/GreatWall_camioneta_PoerAT.png",
+      "precio": 42000
+    }
+  ],
+  "NISSAN": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Versa Hatchback",
+      "imagen": "/modelos/Nissan_auto_Versa.png",
+      "precio": 12000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Leaf",
+      "imagen": "/modelos/Nissan_auto_LEAF.png",
+      "precio": 25000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Tiida",
+      "imagen": "/modelos/Nissan_auto_Tiida.png",
+      "precio": 10000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Versa Sedan",
+      "imagen": "/modelos/Nissan_auto_VersaSedan.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Altima",
+      "imagen": "/modelos/Nissan_auto_Altima.png",
+      "precio": 21500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Kicks Play",
+      "imagen": "/modelos/Nissan_suv_KicksPlay.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "X-Trail",
+      "imagen": "/modelos/Nissan_suv_XTrail.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Qashqai",
+      "imagen": "/modelos/Nissan_suv_QASHQAI.png",
+      "precio": 19000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Pathfinder",
+      "imagen": "/modelos/Nissan_suv_PATHFINDER.png",
+      "precio": 28000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Frontier",
+      "imagen": "/modelos/Nissan_camioneta_Frontier.png",
+      "precio": 27000
+    }
+  ],
+  "CITROEN": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "C3 You",
+      "imagen": "/modelos/Citroen_suv_C3.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "C3 Aircross",
+      "imagen": "/modelos/Citroen_suv_C3Aircross.png",
+      "precio": 17500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "C Elysee",
+      "imagen": "/modelos/Citroen_auto_CElypse.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "New C4",
+      "imagen": "/modelos/citroen_suv_C4.png",
+      "precio": 28000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "C5 Aircross",
+      "imagen": "/modelos/Citroen_suv_C5Aicross.png",
+      "precio": 24500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Berlingo Multispace",
+      "imagen": "/modelos/Citroen_van_BerlingoMultipace.png",
+      "precio": 12500
+    },
+    {
+      "tipo": "van",
+      "nombre": "Jumpy",
+      "imagen": "/modelos/Citroen_van_Jumpy.png",
+      "precio": 25000
+    }
+  ],
+  "DFSK": [
+    {
+      "tipo": "suv",
+      "nombre": "Glory 500",
+      "imagen": "/modelos/Dfsk_suv_Glory500.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Glory 560",
+      "imagen": "/modelos/Dfsk_suv_Glory560-scaled.png",
+      "precio": 16000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Glory 580 Pro",
+      "imagen": "/modelos/Dfsk_suv_Glory580.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "E5",
+      "imagen": "/modelos/Dfsk_suv_E5.png",
+      "precio": 24000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "iX5",
+      "imagen": "/modelos/Dfsk_suv_Ix5.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "furgoneta",
+      "nombre": "Cityvan C35",
+      "imagen": "/modelos/Dfsk_Van_CITYVANC35.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "furgoneta",
+      "nombre": "K07",
+      "imagen": "/modelos/Dfsk_Van_K07.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "K01",
+      "imagen": "/modelos/Dfsk_camion_K01.png",
+      "precio": 13000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "Cityvan C31",
+      "imagen": "/modelos/Dfsk_camion_CITYVANC31.png",
+      "precio": 16000
+    }
+  ],
+  "FIAT": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "500 Lounge",
+      "imagen": "/modelos/Fiat_auto_500Lounge.png",
+      "precio": 12500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Argo",
+      "imagen": "/modelos/Fiat_suv_Argo.png",
+      "precio": 17000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Pulse",
+      "imagen": "/modelos/Fiat_suv_Pulse.png",
+      "precio": 18500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Fastback",
+      "imagen": "/modelos/Fiat_suv_Pulse_Fastback.png",
+      "precio": 30500
+    }
+  ],
+  "BYD": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "F0",
+      "imagen": "/modelos/BYD_auto_F0.png",
+      "precio": 8000
+    },
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "Dolphin",
+      "imagen": "/modelos/N_BYD_auto_Dolphin.png",
+      "precio": 29000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "F3",
+      "imagen": "/modelos/BYD_auto_F3.png",
+      "precio": 8000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "Han",
+      "imagen": "/modelos/BYD_auto_Han.png",
+      "precio": 32000
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "G6 TID",
+      "imagen": "/modelos/BYD_auto_G6Tid.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Yuan Plus",
+      "imagen": "/modelos/BYD_suv_YuanPlus.png",
+      "precio": 32500
+    },
+    {
+      "tipo": "furgoneta",
+      "nombre": "T3 NCM",
+      "imagen": "/modelos/BYD_van_T3NCM.png",
+      "precio": 25000
+    }
+  ],
+  "SWM": [
+    {
+      "tipo": "suv",
+      "nombre": "G01",
+      "imagen": "/modelos/SWM_suv_G01.png",
+      "precio": 15000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "G01F",
+      "imagen": "/modelos/SWM_suv_G01F.png",
+      "precio": 19500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "G03F",
+      "imagen": "/modelos/SWM_suv_G03F.png",
+      "precio": 17500
+    }
+  ],
+  "MITSUBISHI": [
+    {
+      "tipo": "suv",
+      "nombre": "Montero Sport",
+      "imagen": "/modelos/Mitsubishi_suv_MonteroSport.png",
+      "precio": 28000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Outlander",
+      "imagen": "/modelos/Mitsubishi_suv_Outlander.png",
+      "precio": 24500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Asx",
+      "imagen": "/modelos/Mitsubishi_suv_ASX.png",
+      "precio": 25000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "Eclipse Cross",
+      "imagen": "/modelos/Mitsubishi_suv_EclipseCross.png",
+      "precio": 22000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "L200",
+      "imagen": "/modelos/Mitsubishi_camioneta_L200.png",
+      "precio": 28500
+    }
+  ],
+  "JAC MOTORS": [
+    {
+      "tipo": "HATCHBACK",
+      "nombre": "E-JS1",
+      "imagen": "/modelos/Jac_auto_Ejs1.png",
+      "precio": 15500
+    },
+    {
+      "tipo": "SEDAN",
+      "nombre": "J4",
+      "imagen": "/modelos/Jac_auto_J4.png",
+      "precio": 11000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "JS2",
+      "imagen": "/modelos/Jac_suv_JS2.png",
+      "precio": 14000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "JS3",
+      "imagen": "/modelos/Jac_suv_JS3.png",
+      "precio": 16500
+    },
+    {
+      "tipo": "suv",
+      "nombre": "JS4",
+      "imagen": "/modelos/Jac_suv_JS4.png",
+      "precio": 18000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "JS5",
+      "imagen": "/modelos/Jac_suv_JS5.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "suv",
+      "nombre": "JS8",
+      "imagen": "/modelos/Jac_suv_JS8.png",
+      "precio": 23000
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Pick Up T6",
+      "imagen": "/modelos/Jac_camioneta_T6.png",
+      "precio": 19500
+    },
+    {
+      "tipo": "camioneta",
+      "nombre": "Pick Up T8",
+      "imagen": "/modelos/Jac_camioneta_T8.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "HFC 1035KD",
+      "imagen": "/modelos/Jac_camion_HFC1035.png",
+      "precio": 14500
+    },
+    {
+      "tipo": "camion",
+      "nombre": "HFC 1050 Kn Std",
+      "imagen": "/modelos/Jac_camion_HFC1050.png",
+      "precio": 21000
+    },
+    {
+      "tipo": "camion",
+      "nombre": "HFC 1040 Kn Std Euro III",
+      "imagen": "/modelos/Jac_camion_HFC1040.png",
+      "precio": 24000
+    }
+  ]
+}

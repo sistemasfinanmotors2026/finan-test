@@ -11,7 +11,9 @@ export default function TrabajaPage() {
     <main className="bg-gray-50">
       <Hero />
       <Benefits />
-      <Divider Icon={Mail} />
+      <Divider Icon={Mail}
+        iconBackgroundColor="bg-white-100"
+        iconColor="text-blue-900" />
       <FormSection />
       <Footer />
     </main>

@@ -15,7 +15,10 @@ export default function Hero() {
 
                 por eso, queremos incorporar el mejor talento a nuestro equipo.
             </p>
-            <Divider Icon={IdCard} />
+            <Divider Icon={IdCard}
+            iconBackgroundColor="bg-white-100"
+            iconColor="text-blue-900"
+            />
         </section>
     );
 }
