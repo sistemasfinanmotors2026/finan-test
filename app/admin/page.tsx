@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 interface SliderConfig {
@@ -11,8 +10,6 @@ interface SliderConfig {
 }
 
 export default function AdminPage() {
-  const router = useRouter();
-
   const [currentSection, setCurrentSection] = useState('section1');
   const [images, setImages] = useState<string[]>([]);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -26,12 +23,7 @@ export default function AdminPage() {
     'services'
   ]);
 
-  // 🔥 SOLO carga datos (auth ya lo maneja el proxy)
-  useEffect(() => {
-    loadConfig();
-  }, [currentSection]);
-
-  const loadConfig = async () => {
+  const loadConfig = useCallback(async () => {
     try {
       const response = await fetch(`/api/images?section=${currentSection}`, {
         cache: "no-store"
@@ -39,12 +31,17 @@ export default function AdminPage() {
 
       const config: SliderConfig = await response.json();
       setImages(config.images);
-    } catch (error) {
+    } catch {
       setMessage('Error al cargar la configuración');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentSection]);
+
+  // 🔥 SOLO carga datos (auth ya lo maneja el proxy)
+  useEffect(() => {
+    loadConfig();
+  }, [loadConfig]);
 
   const handleLogout = async () => {
   await fetch('/api/auth/logout', {
@@ -93,7 +90,7 @@ export default function AdminPage() {
       } else {
         setMessage(result.error || 'Error al subir imágenes');
       }
-    } catch (error) {
+    } catch {
       setMessage('Error de conexión');
     } finally {
       setIsUploading(false);

@@ -1,7 +1,6 @@
 "use client";
 import { IdCard } from "lucide-react";
 import Divider from "../components/Divider";
-import { use } from "react";
 
 export default function Hero() {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { UserRound, Star,HandHeart,UserRoundPen, Mail, IdCard   } from "lucide-react";
+import { UserRound, Star, HandHeart, UserRoundPen } from "lucide-react";
 const benefits = [
     {
         title: "EXPERIENCIA",

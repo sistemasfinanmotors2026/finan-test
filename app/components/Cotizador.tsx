@@ -1,77 +1,122 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { CATEGORIAS_VEHICULAR, CATEGORIAS_INMOBILIARIA } from '../constants/cotizador';
+import { formatCurrency } from '../lib/utils';
+import type { QuoteData, QuotePlan } from '../lib/types';
+import type { CotizacionTipo, ModeloVehiculo } from '../types/cotizador';
+import { useCotizadorData } from '../hooks/useCotizadorData';
+import { useCotizadorCalculations } from '../hooks/useCotizadorCalculations';
+import type { TipoFinanciamiento } from '../types/cotizador-finance';
+import { FinancingSection } from './cotizador/FinancingSection';
+import { ClientDataSection } from './cotizador/ClientDataSection';
 
-// --- INTERFACES ---
-interface ModeloJSON {
-  tipo: string;
-  nombre: string;
-  imagen: string;
-  precio: number;
-}
-
-interface ItemData extends ModeloJSON {
+interface CotizadorForm {
   marca: string;
+  modelo: string;
+  precio: number;
+  plazo: number;
+  porcentajeEntrada: number;
+  tipoFinanciamiento: TipoFinanciamiento;
+  plan: QuotePlan;
+  mesEntrega: number;
+  nombre: string;
+  correo: string;
+  telefono: string;
+  cedula: string;
+  provincia: string;
+  agencia: string;
+  ciudad: string;
+  tipoCliente: string;
+  aceptaTerminos: boolean;
+  imagen: string;
 }
 
-type Seccion = 'VEHICULAR' | 'INMOBILIARIA' | null;
+const AGENCIAS_POR_PROVINCIA: Record<string, string[]> = {
+  Pichincha: ['Quito Norte', 'Quito Sur', 'Valle de los Chillos'],
+  Guayas: ['Guayaquil Centro', 'Samborondon', 'Daule'],
+  Manabi: ['Manta', 'Portoviejo', 'Chone'],
+  Azuay: ['Cuenca Centro', 'Cuenca Norte']
+};
+
+const INITIAL_FORM: CotizadorForm = {
+  marca: '',
+  modelo: '',
+  precio: 0,
+  plazo: 72,
+  porcentajeEntrada: 20,
+  tipoFinanciamiento: 'CON_ENTRADA',
+  plan: 'PLAN_ADELANTADO',
+  mesEntrega: 7,
+  nombre: '',
+  correo: '',
+  telefono: '',
+  cedula: '',
+  provincia: '',
+  agencia: '',
+  ciudad: '',
+  tipoCliente: 'PRIMERA_VEZ',
+  aceptaTerminos: false,
+  imagen: ''
+};
+
+const normalizarCategoria = (categoria: string) => categoria.toLowerCase().replace(/s$/, '');
+
+const coincideTipoCategoria = (tipo: string, categoria: string | null) => {
+  if (!categoria) return false;
+
+  const catNormalizada = normalizarCategoria(categoria);
+  const tipoModelo = tipo.toLowerCase();
+
+  if (catNormalizada === 'auto') {
+    return tipoModelo === 'hatchback' || tipoModelo === 'sedan' || tipoModelo === 'auto';
+  }
+
+  return tipoModelo === catNormalizada;
+};
 
 export default function Cotizador() {
   const [step, setStep] = useState(1);
-  const [seccion, setSeccion] = useState<Seccion>(null);
+  const [seccion, setSeccion] = useState<CotizacionTipo>(null);
   const [categoriaId, setCategoriaId] = useState<string | null>(null);
 
-  const [allModelos, setAllModelos] = useState<ItemData[]>([]);
+  const { allModelos, vehicularMeta, inmobiliarioMeta, autoSeguroMeta } = useCotizadorData();
+
   const [marcasDisponibles, setMarcasDisponibles] = useState<string[]>([]);
-  const [modelosFiltrados, setModelosFiltrados] = useState<ItemData[]>([]);
+  const [modelosFiltrados, setModelosFiltrados] = useState<ModeloVehiculo[]>([]);
 
-  const [form, setForm] = useState({
-    marca: '',
-    modelo: '',
-    precio: 0,
-    plazo: 72,
-    nombre: '',
-    correo: '',
-    telefono: '',
-    imagen: ''
+  const [form, setForm] = useState(INITIAL_FORM);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const agenciasDisponibles = form.provincia ? AGENCIAS_POR_PROVINCIA[form.provincia] ?? [] : [];
+  const {
+    isVehicular,
+    isPlanJustoATiempo,
+    isPlanAutoSeguro,
+    montoFinanciado,
+    cuotaMensual,
+    inscripcion,
+    ofertaMesSeis,
+    montoEntrada,
+    opcionesJustoATiempo,
+  } = useCotizadorCalculations({
+    seccion,
+    form,
+    vehicularMeta,
+    inmobiliarioMeta,
+    autoSeguroMeta,
   });
-
-  // 1. Cargar y transformar JSON
-  useEffect(() => {
-    const cargarDatos = async () => {
-      try {
-        const res = await fetch('/modelo.json');
-        const data = await res.json();
-        const listaPlana: ItemData[] = Object.entries(data).flatMap(([marca, modelos]) => {
-          return (modelos as ModeloJSON[]).map(m => ({
-            ...m,
-            marca: marca.toUpperCase(),
-          }));
-        });
-        setAllModelos(listaPlana);
-      } catch (error) {
-        console.error("Error cargando modelos:", error);
-      }
-    };
-    cargarDatos();
-  }, []);
 
   // 2. Filtrar Marcas
   useEffect(() => {
     if (categoriaId && allModelos.length > 0) {
-      const filtrados = allModelos.filter(m => {
-        const catNormalizada = categoriaId.toLowerCase().replace(/s$/, '');
-        const tipoModelo = m.tipo.toLowerCase();
-        if (catNormalizada === 'auto') {
-            return tipoModelo === 'hatchback' || tipoModelo === 'sedan' || tipoModelo === 'auto';
-        }
-        return tipoModelo === catNormalizada;
-      });
+      const filtrados = allModelos.filter(m => coincideTipoCategoria(m.tipo, categoriaId));
 
       const marcas = Array.from(new Set(filtrados.map(m => m.marca)));
       setMarcasDisponibles(marcas.sort());
       setForm(prev => ({ ...prev, marca: '', modelo: '', precio: 0, imagen: '' }));
+      setSubmitMessage('');
     }
   }, [categoriaId, allModelos]);
 
@@ -88,31 +133,128 @@ export default function Cotizador() {
   };
 
   const handleMarcaChange = (marca: string) => {
-    const filtrados = allModelos.filter(m => {
-        const catNormalizada = categoriaId?.toLowerCase().replace(/s$/, '');
-        const tipoModelo = m.tipo.toLowerCase();
-        const coincideTipo = catNormalizada === 'auto' 
-            ? (tipoModelo === 'hatchback' || tipoModelo === 'sedan' || tipoModelo === 'auto')
-            : tipoModelo === catNormalizada;
-        return m.marca === marca && coincideTipo;
-    });
+    const filtrados = allModelos.filter(m => m.marca === marca && coincideTipoCategoria(m.tipo, categoriaId));
     setModelosFiltrados(filtrados);
-    setForm({ ...form, marca, modelo: '', precio: 0, imagen: '' });
+    setForm(prev => ({ ...prev, marca, modelo: '', precio: 0, imagen: '' }));
+    setSubmitMessage('');
   };
 
   const handleModeloChange = (nombreModelo: string) => {
     const seleccionado = modelosFiltrados.find(m => m.nombre === nombreModelo);
     if (seleccionado) {
-      setForm({ ...form, modelo: nombreModelo, precio: seleccionado.precio, imagen: seleccionado.imagen });
+      setForm(prev => ({ ...prev, modelo: nombreModelo, precio: seleccionado.precio, imagen: seleccionado.imagen }));
+      setSubmitMessage('');
     }
   };
 
-  const reset = () => {
+  const categoriaInmobiliariaSeleccionada = CATEGORIAS_INMOBILIARIA.find(c => c.id === categoriaId);
+
+  const handleFormFieldChange = (field: string, value: string | boolean) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handlePlanChange = (plan: QuotePlan) => {
+    setForm(prev => {
+      if (plan === 'PLAN_PUNTUACION') {
+        return { ...prev, plan, tipoFinanciamiento: 'SIN_ENTRADA' };
+      }
+
+      if (plan === 'PLAN_AUTO_SEGURO') {
+        return {
+          ...prev,
+          plan,
+          tipoFinanciamiento: 'CON_ENTRADA',
+          plazo: 6,
+          porcentajeEntrada: 35,
+        };
+      }
+
+      return { ...prev, plan, tipoFinanciamiento: 'CON_ENTRADA' };
+    });
+  };
+
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
+
+    if (!form.nombre || !form.correo || !form.telefono || !form.aceptaTerminos) {
+      setSubmitMessage('Completa nombre, correo, telefono y acepta terminos para continuar.');
+      return;
+    }
+
+    if (isVehicular && !form.modelo) {
+      setSubmitMessage('Selecciona marca y modelo para generar la cotizacion vehicular.');
+      return;
+    }
+
+    const marcaPayload = isVehicular ? form.marca : 'INMOBILIARIA';
+    const modeloPayload = isVehicular ? form.modelo : (categoriaInmobiliariaSeleccionada?.nombre ?? 'INMUEBLE');
+
+    const payload: QuoteData = {
+      nombre: form.nombre,
+      correo: form.correo,
+      telefono: form.telefono,
+      tipoProducto: seccion ?? undefined,
+      marca: marcaPayload,
+      modelo: modeloPayload,
+      precio: form.precio,
+      meses: form.plazo,
+      cuota: cuotaMensual,
+      inscripcion,
+      cedula: form.cedula,
+      provincia: form.provincia,
+      ciudad: form.ciudad,
+      agencia: form.agencia,
+      tipoCliente: form.tipoCliente,
+      tipoFinanciamiento: form.tipoFinanciamiento,
+      porcentajeEntrada: form.porcentajeEntrada,
+      montoEntrada,
+      plan: form.plan,
+      mesEntrega: isPlanJustoATiempo ? form.mesEntrega : undefined,
+      ofertaMesSeis: isPlanAutoSeguro ? ofertaMesSeis : undefined,
+    };
+
+    setIsSubmitting(true);
+    setSubmitMessage('Procesando cotizacion y enviando correo...');
+
+    try {
+      const res = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || 'No se pudo enviar la cotizacion.');
+      }
+
+      setSubmitMessage('Cotizacion enviada correctamente a tu correo.');
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Ocurrio un error inesperado.';
+      setSubmitMessage(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const reset = useCallback(() => {
     setStep(1);
     setSeccion(null);
     setCategoriaId(null);
-    setForm({ marca: '', modelo: '', precio: 0, plazo: 72, nombre: '', correo: '', telefono: '', imagen: '' });
-  };
+    setForm(INITIAL_FORM);
+    setModelosFiltrados([]);
+    setMarcasDisponibles([]);
+    setSubmitMessage('');
+  }, []);
+
+  useEffect(() => {
+    const handleReset = () => reset();
+    window.addEventListener('cotizador:reset', handleReset);
+
+    return () => {
+      window.removeEventListener('cotizador:reset', handleReset);
+    };
+  }, [reset]);
 
   return (
     <div className="min-h-screen bg-white text-slate-900 p-6 font-sans">
@@ -138,6 +280,7 @@ export default function Cotizador() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {(seccion === 'VEHICULAR' ? CATEGORIAS_VEHICULAR : CATEGORIAS_INMOBILIARIA).map((cat) => (
                 <div key={cat.id} onClick={() => { setCategoriaId(cat.id); setStep(3); }} className="cursor-pointer bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] hover:border-[#E35205] hover:shadow-2xl transition-all text-center group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={cat.imagen} alt={cat.nombre} className="h-28 mx-auto mb-4 object-contain group-hover:scale-110 transition-transform" />
                   <span className="font-black uppercase text-sm tracking-widest text-gray-500 group-hover:text-[#001E4E]">{cat.nombre}</span>
                 </div>
@@ -151,6 +294,7 @@ export default function Cotizador() {
             {/* LADO DE LA IMAGEN DINÁMICA */}
             <div className="bg-slate-50 rounded-[3rem] p-12 flex flex-col items-center justify-center border border-slate-100 relative overflow-hidden">
                 <div className="absolute top-10 left-10 text-[120px] font-black text-slate-200 opacity-20 pointer-events-none">FINAN</div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src={getDisplayImage()} 
                   alt="Vista Previa" 
@@ -160,7 +304,7 @@ export default function Cotizador() {
                   <div className="mt-10 text-center z-10">
                     <p className="text-slate-400 font-bold uppercase text-xs tracking-widest mb-2">Valor Estimado:</p>
                     <div className="bg-white px-8 py-4 rounded-2xl shadow-sm inline-block">
-                        <span className="text-5xl font-black text-[#001E4E]">${form.precio.toLocaleString()}</span>
+                        <span className="text-5xl font-black text-[#001E4E]">{formatCurrency(form.precio)}</span>
                     </div>
                   </div>
                 )}
@@ -193,25 +337,60 @@ export default function Cotizador() {
                     <div className="grid grid-cols-2 gap-4 animate-in zoom-in-95">
                         <div className="bg-[#001E4E] p-4 rounded-2xl text-white text-center">
                             <p className="text-[9px] font-bold opacity-70">CUOTA MENSUAL</p>
-                            <p className="text-xl font-black">${(form.precio / form.plazo).toFixed(2)}</p>
+                          <p className="text-xl font-black">{formatCurrency(cuotaMensual)}</p>
                         </div>
                         <div className="bg-orange-50 p-4 rounded-2xl text-[#E35205] text-center">
                             <p className="text-[9px] font-bold opacity-70">INSCRIPCIÓN</p>
-                            <p className="text-xl font-black">${(form.precio * 0.04).toFixed(2)}</p>
+                          <p className="text-xl font-black">{formatCurrency(inscripcion)}</p>
                         </div>
                     </div>
                 )}
 
-                <div className="pt-6 space-y-4">
-                    <input type="text" placeholder="Tu Nombre" className="w-full p-4 bg-slate-50 rounded-xl outline-none" onChange={(e) => setForm({...form, nombre: e.target.value})} />
-                    <div className="grid grid-cols-2 gap-4">
-                        <input type="email" placeholder="Correo" className="p-4 bg-slate-50 rounded-xl outline-none" onChange={(e) => setForm({...form, correo: e.target.value})} />
-                        <input type="tel" placeholder="WhatsApp" className="p-4 bg-slate-50 rounded-xl outline-none" onChange={(e) => setForm({...form, telefono: e.target.value})} />
-                    </div>
-                </div>
+                {isVehicular && form.precio > 0 && (
+                  <FinancingSection
+                    plan={form.plan}
+                    tipoFinanciamiento={form.tipoFinanciamiento}
+                    plazo={form.plazo}
+                    porcentajeEntrada={form.porcentajeEntrada}
+                    mesEntrega={form.mesEntrega}
+                    isPlanAutoSeguro={isPlanAutoSeguro}
+                    isPlanJustoATiempo={isPlanJustoATiempo}
+                    montoEntrada={montoEntrada}
+                    ofertaMesSeis={ofertaMesSeis}
+                    opcionesJustoATiempo={opcionesJustoATiempo}
+                    onPlanChange={handlePlanChange}
+                    onTipoFinanciamientoChange={(tipo) =>
+                      setForm((prev) => ({
+                        ...prev,
+                        tipoFinanciamiento: tipo,
+                        plan: tipo === 'SIN_ENTRADA'
+                          ? 'PLAN_PUNTUACION'
+                          : prev.plan === 'PLAN_PUNTUACION'
+                            ? 'PLAN_ADELANTADO'
+                            : prev.plan,
+                      }))
+                    }
+                    onPlazoChange={(newPlazo) => setForm((prev) => ({ ...prev, plazo: newPlazo }))}
+                    onPorcentajeEntradaChange={(porcentaje) => setForm((prev) => ({ ...prev, porcentajeEntrada: porcentaje }))}
+                    onMesEntregaChange={(mes) => setForm((prev) => ({ ...prev, mesEntrega: mes }))}
+                  />
+                )}
+                <ClientDataSection
+                  form={form}
+                  agenciasPorProvincia={AGENCIAS_POR_PROVINCIA}
+                  agenciasDisponibles={agenciasDisponibles}
+                  submitMessage={submitMessage}
+                  montoFinanciado={montoFinanciado}
+                  inscripcion={inscripcion}
+                  onFieldChange={handleFormFieldChange}
+                />
 
-                <button className="w-full bg-[#E35205] text-white py-5 rounded-2xl font-black text-lg shadow-lg hover:bg-[#c44604] transition-all uppercase" disabled={!form.modelo || !form.nombre}>
-                  Obtener Cotización
+                <button
+                  className="w-full bg-[#E35205] text-white py-5 rounded-2xl font-black text-lg shadow-lg hover:bg-[#c44604] transition-all uppercase disabled:opacity-40"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting || !form.nombre || !form.correo || !form.telefono || (isVehicular && !form.modelo) || !form.aceptaTerminos}
+                >
+                  {isSubmitting ? 'Enviando...' : 'Obtener Cotizacion'}
                 </button>
               </div>
             </div>
