@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Footer from "@/app/components/Footer";
 import PlanCard from "../components/PlanCard";
 import Divider from "../components/Divider";

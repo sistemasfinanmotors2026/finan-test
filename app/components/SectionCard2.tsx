@@ -18,16 +18,12 @@ export default function SectionCard2({
   sectionId = "services",
 }: SectionCard2Props) {
   const [dynamicImages, setDynamicImages] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!sectionId) return;
 
     const fetchImages = async () => {
-      setIsLoading(true);
       try {
-        const url = `/api/images?section=${sectionId}`;
-        console.log("FETCH URL:", url);
         const response = await fetch(`/api/images?section=${sectionId}`, {
           cache: "no-store",
         });
@@ -37,8 +33,6 @@ export default function SectionCard2({
         }
       } catch (error) {
         console.error('Error cargando imágenes dinámicas:', error);
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -70,6 +64,7 @@ export default function SectionCard2({
             >
               {/* Imagen */}
               <div className="relative aspect-square">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={item.image}
                   alt={item.title}

@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 
 export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const hoverTimeoutRef = useRef<number | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     return () => {
@@ -22,7 +25,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="shrink-0">
-            <a href="/">
+            <Link href="/">
               <Image
                 className="finan_logo h-auto"
                 src="/logo.svg"
@@ -31,17 +34,17 @@ export default function Header() {
                 height={20}
                 priority
               />
-            </a>
+            </Link>
           </div>
 
           {/* Menu Links */}
           <div className="hidden md:flex space-x-8">
-            <a
+            <Link
               href="/"
               className="text-[#041E57] hover:text-[#D3B67D] transition rounded-md px-2 py-1"
             >
               Inicio
-            </a>
+            </Link>
 
             {/* Dropdown Menu */}
             <div className="relative">
@@ -85,43 +88,47 @@ export default function Header() {
                     }, 120);
                   }}
                 >
-                  <a
+                  <Link
                     href="/conocenos"
                     className="block px-4 py-2 text-sm text-[#041E57] hover:text-[#D3B67D] transition"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Conocenos
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/trabaja-con-nosotros"
                     className="block px-4 py-2 text-sm text-[#041E57] hover:text-[#D3B67D] transition"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Trabaja con nosotros
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/agencias"
                     className="block px-4 py-2 text-sm text-[#041E57] hover:text-[#D3B67D] transition"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Agencias
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
 
-            <a
+            <Link
               href="/planes"
               className="text-[#041E57] hover:text-[#D3B67D] transition rounded-md px-2 py-1"
             >
               Planes
-            </a>
-            <a
+            </Link>
+            <Link
               href="/cotizador"
               className="text-[#041E57] hover:text-[#D3B67D] transition rounded-md px-2 py-1"
+              onClick={(event) => {
+                event.preventDefault();
+                router.push(`/cotizador?fresh=${Date.now()}`);
+              }}
             >
               Cotizador
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button (opcional) */}

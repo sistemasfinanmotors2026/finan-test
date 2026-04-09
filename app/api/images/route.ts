@@ -1,10 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, readFile, readdir, unlink } from 'fs/promises';
+import { writeFile, readFile, unlink } from 'fs/promises';
 import { join } from 'path';
 import { existsSync, mkdirSync } from 'fs';
 
 const IMAGES_DIR = join(process.cwd(), 'public', 'uploaded-images');
 const CONFIG_FILE = join(process.cwd(), 'public', 'slider-config.json');
+
+interface SliderSection {
+  images: string[];
+  lastUpdated: string;
+}
+
+interface SliderConfig {
+  sections: Record<string, SliderSection>;
+}
 
 // Asegurar que el directorio existe
 if (!existsSync(IMAGES_DIR)) {
@@ -15,7 +24,7 @@ if (!existsSync(IMAGES_DIR)) {
 async function readConfig() {
   try {
     const configData = await readFile(CONFIG_FILE, 'utf-8');
-    return JSON.parse(configData);
+    return JSON.parse(configData) as SliderConfig;
   } catch {
     // Si no existe el archivo, devolver configuración por defecto
     return {
@@ -30,7 +39,7 @@ async function readConfig() {
 }
 
 // Función para guardar la configuración
-async function saveConfig(config: any) {
+async function saveConfig(config: SliderConfig) {
   await writeFile(CONFIG_FILE, JSON.stringify(config, null, 2));
 }
 
@@ -44,9 +53,14 @@ export async function GET(request: NextRequest) {
 
     const config = await readConfig();
 
+    const sectionConfig = config.sections[section] || {
+      images: [],
+      lastUpdated: new Date().toISOString(),
+    };
+
     return NextResponse.json({
       section,
-      ...config.sections[section]
+      ...sectionConfig
     });
 
   } catch (error) {
