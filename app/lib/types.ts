@@ -27,4 +27,5 @@ export interface QuoteData {
   plan?: QuotePlan;
   mesEntrega?: number;
   ofertaMesSeis?: number;
+  imagenUrl?: string;
 }

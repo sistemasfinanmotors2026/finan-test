@@ -152,9 +152,9 @@ const buildBaseStyles = () => `
 const buildHeader = (plan?: QuotePlan) => `
   <div class="header-band">
     <span>PROFORMA OFICIAL</span>
-    <img src="https://finan.ec/wp-content/uploads/2025/12/txt-finan-amarillo.png" alt="Finan" />
+    <img src="/txt-finan-amarillo.png" alt="Finan" />
   </div>
-  <h1 class="title">PROFORMA ${escapeHtml(plan === 'PLAN_JUSTO_A_TIEMPO' || plan === 'PLAN_AUTO_SEGURO' || plan === 'PLAN_ADELANTADO' || plan === 'PLAN_PUNTUACION' ? 'VEHICULAR' : 'FINAN')}</h1>
+  <h1 class="title">COTIZACIÓN ${escapeHtml(plan === 'PLAN_JUSTO_A_TIEMPO' || plan === 'PLAN_AUTO_SEGURO' || plan === 'PLAN_ADELANTADO' || plan === 'PLAN_PUNTUACION' ? 'VEHICULAR' : 'FINAN')}</h1>
   <div class="subtitle">${escapeHtml(getPlanLabel(plan))}</div>
 `;
 
@@ -175,6 +175,7 @@ const buildClientCard = (data: QuoteData) => `
 const buildVehicleCard = (data: QuoteData) => `
   <div class="card card-dark">
     <div class="label">Detalle del Bien</div>
+    ${data.imagenUrl ? `<div style="text-align: center; margin: 12px 0;"><img src="${escapeHtml(data.imagenUrl)}" alt="${escapeHtml(data.marca)} ${escapeHtml(data.modelo)}" style="max-width: 100%; max-height: 150px; object-fit: contain;" /></div>` : ''}
     <div class="grid">
       <div><div class="value">${escapeHtml(data.marca)} ${escapeHtml(data.modelo)}</div></div>
       <div><div class="value">Monto: ${escapeHtml(formatCurrency(data.precio))}</div></div>
@@ -334,6 +335,8 @@ const buildPdfHtmlByPlan = (data: QuoteData, metaRow: VehicularMetaRow | null, a
 
 export async function POST(req: Request) {
   try {
+    const { searchParams } = new URL(req.url);
+    const shouldDownloadPdf = searchParams.get('download') === '1';
     const data: QuoteData = await req.json();
 
     const [vehicularRows, inmobiliarioRows, autoSeguroRows] = await Promise.all([
@@ -380,6 +383,19 @@ export async function POST(req: Request) {
         },
       ],
     });
+
+    if (shouldDownloadPdf) {
+      const filename = `cotizacion-${(data.plan || 'plan-personalizado').toLowerCase()}.pdf`;
+
+      return new NextResponse(Buffer.from(pdfBuffer), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/pdf',
+          'Content-Disposition': `attachment; filename="${filename}"`,
+          'Content-Length': String(Buffer.from(pdfBuffer).byteLength),
+        },
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
